@@ -11,5 +11,5 @@ Currently, all the app does id fetch the current invaisons and then tapping on t
 
 Here are a few screenshots 
 
-![Table](https://github.com/anthonycastelli/Toon-HQ-Watch-App/tree/master/Resources/Table.png)
-![Details](https://github.com/anthonycastelli/Toon-HQ-Watch-App/tree/master/Resources/Details.png)
+![Table](https://github.com/anthonycastelli/Toon-HQ-Watch-App/raw/master/Resources/Table.png)
+![Details](https://github.com/anthonycastelli/Toon-HQ-Watch-App/raw/master/Resources/Details.png)
