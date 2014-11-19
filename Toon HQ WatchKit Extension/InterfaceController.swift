@@ -12,6 +12,9 @@ import Foundation
 
 class InterfaceController: WKInterfaceController {
 
+    // IB Outlets
+    @IBOutlet var invasionTable: WKInterfaceTable!
+    
     override init(context: AnyObject?) {
         // Initialize variables here.
         super.init(context: context)

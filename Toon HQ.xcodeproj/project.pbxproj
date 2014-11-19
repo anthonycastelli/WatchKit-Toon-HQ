@@ -21,6 +21,7 @@
 		924502091A1C220F00FE5600 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 924502081A1C220F00FE5600 /* Interface.storyboard */; };
 		9245020B1A1C220F00FE5600 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9245020A1A1C220F00FE5600 /* Images.xcassets */; };
 		9245020E1A1C220F00FE5600 /* Toon HQ WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 924501F11A1C220F00FE5600 /* Toon HQ WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		924502171A1C224700FE5600 /* InvasionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924502161A1C224700FE5600 /* InvasionList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		924502071A1C220F00FE5600 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		924502081A1C220F00FE5600 /* Interface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Interface.storyboard; sourceTree = "<group>"; };
 		9245020A1A1C220F00FE5600 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		924502161A1C224700FE5600 /* InvasionList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvasionList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +185,7 @@
 		924501F51A1C220F00FE5600 /* Toon HQ WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
+				924502161A1C224700FE5600 /* InvasionList.swift */,
 				924501F91A1C220F00FE5600 /* InterfaceController.swift */,
 				924501FB1A1C220F00FE5600 /* NotificationController.swift */,
 				924501FD1A1C220F00FE5600 /* Images.xcassets */,
@@ -396,6 +399,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				924502171A1C224700FE5600 /* InvasionList.swift in Sources */,
 				924501FC1A1C220F00FE5600 /* NotificationController.swift in Sources */,
 				924501FA1A1C220F00FE5600 /* InterfaceController.swift in Sources */,
 			);
