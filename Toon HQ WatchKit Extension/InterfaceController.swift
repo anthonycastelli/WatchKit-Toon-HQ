@@ -91,16 +91,8 @@ class InterfaceController: WKInterfaceController {
             let address = "http://toonhq.org/static/2.03/img/cogs/\(formattedCog).png"
             
             // Lets do this in the background so we don't freeze the mainThread
-            let request: NSURLRequest = NSURLRequest(URL: NSURL(string: address)!)
-            NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue(), completionHandler: { (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
-                // Make sure we don't have an error
-                if error == nil {
-                    if let suitIcon = UIImage(data: data) {
-                        row.suitIcon.setImage(suitIcon)
-                    }
-                } else {
-                    println("Error: \(error.localizedDescription)")
-                }
+            fetchImage(NSURL(string: address)!, handler: { (image, error) -> Void in
+                row.suitIcon.setImage(image)
             })
         }
     }
@@ -108,6 +100,16 @@ class InterfaceController: WKInterfaceController {
     override func table(table: WKInterfaceTable, didSelectRowAtIndex rowIndex: Int) {
         println("Tapped row: \(rowIndex) -- Invasion Info: \(invasions[rowIndex])")
         // TODO: Show details for the current invasion
+    // MARK: Helpers
+    
+    func fetchImage(url: NSURL, handler: ((image: UIImage, NSError!) -> Void)) {
+        var imageRequest: NSURLRequest = NSURLRequest(URL: url)
+        NSURLConnection.sendAsynchronousRequest(imageRequest, queue: NSOperationQueue.mainQueue(), completionHandler:{
+            response, data, error in
+            if let image = UIImage(data: data) {
+                handler(image: image, error)
+            }
+        })
     }
 
 }
