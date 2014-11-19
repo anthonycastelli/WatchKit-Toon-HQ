@@ -24,6 +24,7 @@
 		924502171A1C224700FE5600 /* InvasionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924502161A1C224700FE5600 /* InvasionList.swift */; };
 		924502191A1C2DCE00FE5600 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924502181A1C2DCE00FE5600 /* Alamofire.swift */; };
 		9245021A1A1C2DE400FE5600 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924502181A1C2DCE00FE5600 /* Alamofire.swift */; };
+		9245021C1A1C5DAB00FE5600 /* InvasionDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9245021B1A1C5DAB00FE5600 /* InvasionDetails.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +89,7 @@
 		9245020A1A1C220F00FE5600 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		924502161A1C224700FE5600 /* InvasionList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvasionList.swift; sourceTree = "<group>"; };
 		924502181A1C2DCE00FE5600 /* Alamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alamofire.swift; sourceTree = "<group>"; };
+		9245021B1A1C5DAB00FE5600 /* InvasionDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvasionDetails.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +193,7 @@
 			children = (
 				924502161A1C224700FE5600 /* InvasionList.swift */,
 				924501F91A1C220F00FE5600 /* InterfaceController.swift */,
+				9245021B1A1C5DAB00FE5600 /* InvasionDetails.swift */,
 				924501FB1A1C220F00FE5600 /* NotificationController.swift */,
 				924501FD1A1C220F00FE5600 /* Images.xcassets */,
 				924501F61A1C220F00FE5600 /* Supporting Files */,
@@ -408,6 +411,7 @@
 				924501FC1A1C220F00FE5600 /* NotificationController.swift in Sources */,
 				9245021A1A1C2DE400FE5600 /* Alamofire.swift in Sources */,
 				924501FA1A1C220F00FE5600 /* InterfaceController.swift in Sources */,
+				9245021C1A1C5DAB00FE5600 /* InvasionDetails.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

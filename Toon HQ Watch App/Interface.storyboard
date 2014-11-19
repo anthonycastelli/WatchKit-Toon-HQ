@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="3734"/>
     </dependencies>
     <scenes>
-        <!--Interface Controller-->
+        <!--Invasions-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Toon_HQ_Watch_App" customModuleProvider="target">
+                <controller identifier="InvasionList" title="Invasions" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Toon_HQ_Watch_App" customModuleProvider="target">
                     <items>
                         <table alignment="left" layout="vertical" id="CL3-iY-M7g">
                             <items>
@@ -19,6 +19,9 @@
                                             <label width="0.70000000000000007" height="40" alignment="left" verticalAlignment="center" text="Suit Name" numberOfLines="0" id="SZr-dY-zHX"/>
                                         </items>
                                         <color key="backgroundColor" red="0.07269965277777779" green="0.07269965277777779" blue="0.07269965277777779" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <segue destination="FXm-UE-LII" kind="push" identifier="InvaisonDetails" id="Tgl-aK-afN"/>
+                                        </connections>
                                     </group>
                                     <connections>
                                         <outlet property="suitIcon" destination="zXL-XZ-vqA" id="ktr-Cc-Haw"/>
@@ -34,6 +37,31 @@
                 </controller>
             </objects>
             <point key="canvasLocation" x="220" y="345"/>
+        </scene>
+        <!--InvaisonDetails-->
+        <scene sceneID="VNd-E6-HGM">
+            <objects>
+                <controller identifier="InvaisonDetails" id="FXm-UE-LII" customClass="InvasionDetails" customModule="Toon_HQ_WatchKit_Extension">
+                    <items>
+                        <imageView width="50" height="50" alignment="center" id="Bz9-y2-O6e"/>
+                        <label width="1" alignment="center" verticalAlignment="center" text="Suit Name" textAlignment="center" numberOfLines="0" id="U4Y-bf-DwQ"/>
+                        <separator alignment="left" verticalAlignment="center" id="6kl-6V-yZt">
+                            <color key="color" red="0.11833175505050508" green="0.11833175505050508" blue="0.11833175505050508" alpha="1" colorSpace="calibratedRGB"/>
+                        </separator>
+                        <label width="1" alignment="center" verticalAlignment="center" text="District" textAlignment="center" numberOfLines="0" id="9w9-Ja-Jox"/>
+                        <timer width="1" alignment="center" verticalAlignment="center" textAlignment="center" id="yo3-Gp-uoZ"/>
+                        <label width="1" alignment="center" verticalAlignment="center" text="Defeat Rate" textAlignment="center" numberOfLines="0" id="Qif-ms-VMa"/>
+                    </items>
+                    <connections>
+                        <outlet property="shardName" destination="9w9-Ja-Jox" id="nXP-10-VRP"/>
+                        <outlet property="suitIcon" destination="Bz9-y2-O6e" id="CmQ-jI-p29"/>
+                        <outlet property="suitName" destination="U4Y-bf-DwQ" id="a3E-RW-qFx"/>
+                        <outlet property="suitsPerMinute" destination="Qif-ms-VMa" id="7gC-Ia-FQL"/>
+                        <outlet property="timeLeft" destination="yo3-Gp-uoZ" id="uK2-Sb-vDK"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="468" y="345"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">

@@ -17,6 +17,18 @@ class InterfaceController: WKInterfaceController {
     
     // Regular variables
     var invasions: Array<Dictionary<String, AnyObject>> = []
+    let invasionTick: NSTimer = NSTimer()
+    
+    // Lets setup a few structs to make accessing properties a tad easier
+    struct WatchStoryboard {
+        struct RowTypes {
+            static let InvaisonList = "InvasionList"
+        }
+        
+        struct Segues {
+            static let InvaisonDetails = "InvaisonDetails"
+        }
+    }
     
     override init(context: AnyObject?) {
         // Initialize variables here.
@@ -26,13 +38,13 @@ class InterfaceController: WKInterfaceController {
         
         // Define the timer as a constant as we won't be changing this
         // 15 seconds might be too fast or too slow... idk
-        let timer = NSTimer.scheduledTimerWithTimeInterval(15, target: self, selector: "fetchInvasions", userInfo: nil, repeats: true)
-        timer.fire()
+        invasionTick = NSTimer.scheduledTimerWithTimeInterval(15, target: self, selector: "fetchInvasions", userInfo: nil, repeats: true)
     }
 
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
+        invasionTick.fire()
     }
 
     override func didDeactivate() {
@@ -67,7 +79,7 @@ class InterfaceController: WKInterfaceController {
     
     func loadTableData() {
         // Set the number of rows
-        invasionTable.setNumberOfRows(invasions.count, withRowType: "InvasionList")
+        invasionTable.setNumberOfRows(invasions.count, withRowType: WatchStoryboard.RowTypes.InvaisonList)
         
         // Loop over everything and set our data
         for (index, invasion) in enumerate(invasions) {
@@ -86,30 +98,53 @@ class InterfaceController: WKInterfaceController {
                 cog = "Yes Man"
             }
             
-            // Make the string lowercase, strip any spaces we have and replace them with underscores
-            let formattedCog = cog.lowercaseString.stringByReplacingOccurrencesOfString(" ", withString: "_", options: nil, range: nil)
-            let address = "http://toonhq.org/static/2.03/img/cogs/\(formattedCog).png"
-            
             // Lets do this in the background so we don't freeze the mainThread
-            fetchImage(NSURL(string: address)!, handler: { (image, error) -> Void in
-                row.suitIcon.setImage(image)
+            let request: NSURLRequest = NSURLRequest(URL: NSURL(string: createFormattedImageAddress(cog))!)
+            NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue(), completionHandler: { (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
+                // Make sure we don't have an error
+                if error == nil {
+                    if let suitIcon = UIImage(data: data) {
+                        row.suitIcon.setImage(suitIcon)
+                    }
+                } else {
+                    println("Error: \(error.localizedDescription)")
+                }
             })
         }
     }
     
-    override func table(table: WKInterfaceTable, didSelectRowAtIndex rowIndex: Int) {
-        println("Tapped row: \(rowIndex) -- Invasion Info: \(invasions[rowIndex])")
-        // TODO: Show details for the current invasion
+    override func contextForSegueWithIdentifier(segueIdentifier: String, inTable table: WKInterfaceTable, rowIndex: Int) -> AnyObject? {
+        if segueIdentifier == WatchStoryboard.Segues.InvaisonDetails {
+            return invasions[rowIndex]
+        }
+        return nil
+    }
+    
     // MARK: Helpers
     
-    func fetchImage(url: NSURL, handler: ((image: UIImage, NSError!) -> Void)) {
-        var imageRequest: NSURLRequest = NSURLRequest(URL: url)
-        NSURLConnection.sendAsynchronousRequest(imageRequest, queue: NSOperationQueue.mainQueue(), completionHandler:{
-            response, data, error in
-            if let image = UIImage(data: data) {
-                handler(image: image, error)
-            }
-        })
+    func createFormattedImageAddress(cog: String) -> String {
+        // Create our lowercase string
+        var formattedCog = cog.lowercaseString
+        
+        // Add any characters that might need to be stripped from a string
+        let charactersToStrip = ["-", " "]
+        
+        // Loop over everything and remove it
+        for character in charactersToStrip {
+            formattedCog = formattedCog.stringByReplacingOccurrencesOfString(character, withString: "_", options: nil, range: nil)
+        }
+        
+        // URL encode it all
+        formattedCog = formattedCog.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!
+        
+        // This makes me cry right here...
+        formattedCog = formattedCog.stringByReplacingOccurrencesOfString("%03", withString: "", options: nil, range: nil)
+        
+        // Put it all together
+        let address = "http://toonhq.org/static/2.03/img/cogs/\(formattedCog).png"
+        
+        // BOOM! Return the value!
+        return address
     }
 
 }
