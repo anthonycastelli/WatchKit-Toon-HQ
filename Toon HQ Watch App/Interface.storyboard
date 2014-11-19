@@ -18,6 +18,7 @@
                                             <imageView width="40" height="40" alignment="left" verticalAlignment="center" contentMode="scaleAspectFill" id="zXL-XZ-vqA"/>
                                             <label width="0.70000000000000007" height="40" alignment="left" verticalAlignment="center" text="Suit Name" numberOfLines="0" id="SZr-dY-zHX"/>
                                         </items>
+                                        <color key="backgroundColor" red="0.07269965277777779" green="0.07269965277777779" blue="0.07269965277777779" alpha="1" colorSpace="calibratedRGB"/>
                                     </group>
                                     <connections>
                                         <outlet property="suitIcon" destination="zXL-XZ-vqA" id="ktr-Cc-Haw"/>
