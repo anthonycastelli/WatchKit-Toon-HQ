@@ -93,11 +93,17 @@ class InterfaceController: WKInterfaceController {
             let formattedCog = cog.lowercaseString.stringByReplacingOccurrencesOfString(" ", withString: "_", options: nil, range: nil)
             let address = "http://toonhq.org/static/2.03/img/cogs/\(formattedCog).png"
             
-            println(address)
             // Lets do this in the background so we don't freeze the mainThread
-            dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
-                var image = UIImage(data: NSData(contentsOfURL: NSURL(string: address)!)!)
-                row.suitIcon.setImage(image)
+            let request: NSURLRequest = NSURLRequest(URL: NSURL(string: address)!)
+            NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue(), completionHandler: { (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
+                // Make sure we don't have an error
+                if error == nil {
+                    if let suitIcon = UIImage(data: data) {
+                        row.suitIcon.setImage(suitIcon)
+                    }
+                } else {
+                    println("Error: \(error.localizedDescription)")
+                }
             })
         }
     }
