@@ -22,6 +22,8 @@
 		9245020B1A1C220F00FE5600 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9245020A1A1C220F00FE5600 /* Images.xcassets */; };
 		9245020E1A1C220F00FE5600 /* Toon HQ WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 924501F11A1C220F00FE5600 /* Toon HQ WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		924502171A1C224700FE5600 /* InvasionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924502161A1C224700FE5600 /* InvasionList.swift */; };
+		924502191A1C2DCE00FE5600 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924502181A1C2DCE00FE5600 /* Alamofire.swift */; };
+		9245021A1A1C2DE400FE5600 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924502181A1C2DCE00FE5600 /* Alamofire.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +87,7 @@
 		924502081A1C220F00FE5600 /* Interface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Interface.storyboard; sourceTree = "<group>"; };
 		9245020A1A1C220F00FE5600 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		924502161A1C224700FE5600 /* InvasionList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvasionList.swift; sourceTree = "<group>"; };
+		924502181A1C2DCE00FE5600 /* Alamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alamofire.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +144,7 @@
 			children = (
 				924501CD1A1C220500FE5600 /* AppDelegate.swift */,
 				924501CF1A1C220500FE5600 /* ViewController.swift */,
+				924502181A1C2DCE00FE5600 /* Alamofire.swift */,
 				924501D11A1C220500FE5600 /* Main.storyboard */,
 				924501D41A1C220500FE5600 /* Images.xcassets */,
 				924501D61A1C220500FE5600 /* LaunchScreen.xib */,
@@ -382,6 +386,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				924502191A1C2DCE00FE5600 /* Alamofire.swift in Sources */,
 				924501D01A1C220500FE5600 /* ViewController.swift in Sources */,
 				924501CE1A1C220500FE5600 /* AppDelegate.swift in Sources */,
 			);
@@ -401,6 +406,7 @@
 			files = (
 				924502171A1C224700FE5600 /* InvasionList.swift in Sources */,
 				924501FC1A1C220F00FE5600 /* NotificationController.swift in Sources */,
+				9245021A1A1C2DE400FE5600 /* Alamofire.swift in Sources */,
 				924501FA1A1C220F00FE5600 /* InterfaceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -43,10 +43,68 @@ class InterfaceController: WKInterfaceController {
         super.didDeactivate()
     }
     
+    func fetchInvasions() {
+        // Retrieve our JSON data
+        request(.GET, "http://toonhq.org/api/v1/invasion/").responseJSON { (request, response, json, error) in
+            // Typecasting we must.
+            // The main response is formatted in a dictionary, so we need to pull our dictionaries
+            // and grab the data from the invaisons
+            if let jsonResponse = json as? Dictionary<String, AnyObject> {
+                
+                // Grab the data from the invasions dictionary
+                if let jsonResult = jsonResponse["invasions"] as? Array<Dictionary<String, AnyObject>> {
+                    
+                    // Set it to our variable
+                    self.invasions = jsonResult
+                    
+                    // Load our data into the table
+                    self.loadTableData()
+                    
+                    // NOTE: We are in a nested closure therefore we have to call self
+                }
+            }
+        }
+    }
+    
     // MARK: TableView Data
     
-    func fetchInvasion() {
+    func loadTableData() {
+        // Set the number of rows
+        invasionTable.setNumberOfRows(invasions.count, withRowType: "InvasionList")
         
+        // Loop over everything and set our data
+        for (index, invasion) in enumerate(invasions) {
+            
+            // Get our row at the specified index
+            let row = invasionTable.rowControllerAtIndex(index) as InvasionList
+            
+            // Grab our suit (or cog) name
+            var cog = invasion["cog"] as String!
+            
+            // Set the cog name to the row
+            row.suitName.setText(cog)
+            
+            // Yesman's images are formatted weird for some reason so we have to manually fix it
+            if cog == "Yesman" {
+                cog = "Yes Man"
+            }
+            
+            // Make the string lowercase, strip any spaces we have and replace them with underscores
+            let formattedCog = cog.lowercaseString.stringByReplacingOccurrencesOfString(" ", withString: "_", options: nil, range: nil)
+            let address = "http://toonhq.org/static/2.03/img/cogs/\(formattedCog).png"
+            
+            println(address)
+            // Lets do this in the background so we don't freeze the mainThread
+            dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+                var image = UIImage(data: NSData(contentsOfURL: NSURL(string: address)!)!)
+                row.suitIcon.setImage(image)
+            })
+        }
+    }
+    
+    override func table(table: WKInterfaceTable, didSelectRowAtIndex rowIndex: Int) {
+        println("Tapped row: \(rowIndex) -- Invasion Info: \(invasions[rowIndex])")
+        // TODO: Show details for the current invasion
     }
 
 }
