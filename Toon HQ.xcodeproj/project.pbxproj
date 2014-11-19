@@ -1,0 +1,422 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		924501CE1A1C220500FE5600 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924501CD1A1C220500FE5600 /* AppDelegate.swift */; };
+		924501D01A1C220500FE5600 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924501CF1A1C220500FE5600 /* ViewController.swift */; };
+		924501D31A1C220500FE5600 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 924501D11A1C220500FE5600 /* Main.storyboard */; };
+		924501D51A1C220500FE5600 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 924501D41A1C220500FE5600 /* Images.xcassets */; };
+		924501D81A1C220500FE5600 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 924501D61A1C220500FE5600 /* LaunchScreen.xib */; };
+		924501E41A1C220500FE5600 /* Toon_HQTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924501E31A1C220500FE5600 /* Toon_HQTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		924501DE1A1C220500FE5600 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 924501C01A1C220500FE5600 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 924501C71A1C220500FE5600;
+			remoteInfo = "Toon HQ";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		924501C81A1C220500FE5600 /* Toon HQ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Toon HQ.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		924501CC1A1C220500FE5600 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		924501CD1A1C220500FE5600 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		924501CF1A1C220500FE5600 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		924501D21A1C220500FE5600 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		924501D41A1C220500FE5600 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		924501D71A1C220500FE5600 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		924501DD1A1C220500FE5600 /* Toon HQTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Toon HQTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		924501E21A1C220500FE5600 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		924501E31A1C220500FE5600 /* Toon_HQTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toon_HQTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		924501C51A1C220500FE5600 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		924501DA1A1C220500FE5600 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		924501BF1A1C220500FE5600 = {
+			isa = PBXGroup;
+			children = (
+				924501CA1A1C220500FE5600 /* Toon HQ */,
+				924501E01A1C220500FE5600 /* Toon HQTests */,
+				924501C91A1C220500FE5600 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		924501C91A1C220500FE5600 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				924501C81A1C220500FE5600 /* Toon HQ.app */,
+				924501DD1A1C220500FE5600 /* Toon HQTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		924501CA1A1C220500FE5600 /* Toon HQ */ = {
+			isa = PBXGroup;
+			children = (
+				924501CD1A1C220500FE5600 /* AppDelegate.swift */,
+				924501CF1A1C220500FE5600 /* ViewController.swift */,
+				924501D11A1C220500FE5600 /* Main.storyboard */,
+				924501D41A1C220500FE5600 /* Images.xcassets */,
+				924501D61A1C220500FE5600 /* LaunchScreen.xib */,
+				924501CB1A1C220500FE5600 /* Supporting Files */,
+			);
+			path = "Toon HQ";
+			sourceTree = "<group>";
+		};
+		924501CB1A1C220500FE5600 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				924501CC1A1C220500FE5600 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		924501E01A1C220500FE5600 /* Toon HQTests */ = {
+			isa = PBXGroup;
+			children = (
+				924501E31A1C220500FE5600 /* Toon_HQTests.swift */,
+				924501E11A1C220500FE5600 /* Supporting Files */,
+			);
+			path = "Toon HQTests";
+			sourceTree = "<group>";
+		};
+		924501E11A1C220500FE5600 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				924501E21A1C220500FE5600 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		924501C71A1C220500FE5600 /* Toon HQ */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 924501E71A1C220500FE5600 /* Build configuration list for PBXNativeTarget "Toon HQ" */;
+			buildPhases = (
+				924501C41A1C220500FE5600 /* Sources */,
+				924501C51A1C220500FE5600 /* Frameworks */,
+				924501C61A1C220500FE5600 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Toon HQ";
+			productName = "Toon HQ";
+			productReference = 924501C81A1C220500FE5600 /* Toon HQ.app */;
+			productType = "com.apple.product-type.application";
+		};
+		924501DC1A1C220500FE5600 /* Toon HQTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 924501EA1A1C220500FE5600 /* Build configuration list for PBXNativeTarget "Toon HQTests" */;
+			buildPhases = (
+				924501D91A1C220500FE5600 /* Sources */,
+				924501DA1A1C220500FE5600 /* Frameworks */,
+				924501DB1A1C220500FE5600 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				924501DF1A1C220500FE5600 /* PBXTargetDependency */,
+			);
+			name = "Toon HQTests";
+			productName = "Toon HQTests";
+			productReference = 924501DD1A1C220500FE5600 /* Toon HQTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		924501C01A1C220500FE5600 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0620;
+				ORGANIZATIONNAME = "Anthony Castelli";
+				TargetAttributes = {
+					924501C71A1C220500FE5600 = {
+						CreatedOnToolsVersion = 6.2;
+					};
+					924501DC1A1C220500FE5600 = {
+						CreatedOnToolsVersion = 6.2;
+						TestTargetID = 924501C71A1C220500FE5600;
+					};
+				};
+			};
+			buildConfigurationList = 924501C31A1C220500FE5600 /* Build configuration list for PBXProject "Toon HQ" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 924501BF1A1C220500FE5600;
+			productRefGroup = 924501C91A1C220500FE5600 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				924501C71A1C220500FE5600 /* Toon HQ */,
+				924501DC1A1C220500FE5600 /* Toon HQTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		924501C61A1C220500FE5600 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				924501D31A1C220500FE5600 /* Main.storyboard in Resources */,
+				924501D81A1C220500FE5600 /* LaunchScreen.xib in Resources */,
+				924501D51A1C220500FE5600 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		924501DB1A1C220500FE5600 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		924501C41A1C220500FE5600 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				924501D01A1C220500FE5600 /* ViewController.swift in Sources */,
+				924501CE1A1C220500FE5600 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		924501D91A1C220500FE5600 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				924501E41A1C220500FE5600 /* Toon_HQTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		924501DF1A1C220500FE5600 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 924501C71A1C220500FE5600 /* Toon HQ */;
+			targetProxy = 924501DE1A1C220500FE5600 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		924501D11A1C220500FE5600 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				924501D21A1C220500FE5600 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		924501D61A1C220500FE5600 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				924501D71A1C220500FE5600 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		924501E51A1C220500FE5600 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		924501E61A1C220500FE5600 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		924501E81A1C220500FE5600 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Toon HQ/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		924501E91A1C220500FE5600 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Toon HQ/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		924501EB1A1C220500FE5600 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Toon HQTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Toon HQ.app/Toon HQ";
+			};
+			name = Debug;
+		};
+		924501EC1A1C220500FE5600 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Toon HQTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Toon HQ.app/Toon HQ";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		924501C31A1C220500FE5600 /* Build configuration list for PBXProject "Toon HQ" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				924501E51A1C220500FE5600 /* Debug */,
+				924501E61A1C220500FE5600 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		924501E71A1C220500FE5600 /* Build configuration list for PBXNativeTarget "Toon HQ" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				924501E81A1C220500FE5600 /* Debug */,
+				924501E91A1C220500FE5600 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		924501EA1A1C220500FE5600 /* Build configuration list for PBXNativeTarget "Toon HQTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				924501EB1A1C220500FE5600 /* Debug */,
+				924501EC1A1C220500FE5600 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 924501C01A1C220500FE5600 /* Project object */;
+}
