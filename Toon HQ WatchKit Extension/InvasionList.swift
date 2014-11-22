@@ -12,5 +12,6 @@ class InvasionList: NSObject {
     
     @IBOutlet weak var suitIcon: WKInterfaceImage!
     @IBOutlet weak var suitName: WKInterfaceLabel!
+    @IBOutlet weak var invadingDistrict: WKInterfaceLabel!
     
 }

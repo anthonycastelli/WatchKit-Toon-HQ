@@ -16,7 +16,14 @@
                                     <group key="rootItem" width="1" alignment="left" id="s4e-NJ-Wdh">
                                         <items>
                                             <imageView width="40" height="40" alignment="left" verticalAlignment="center" contentMode="scaleAspectFill" id="zXL-XZ-vqA"/>
-                                            <label width="0.70000000000000007" height="40" alignment="left" verticalAlignment="center" text="Suit Name" numberOfLines="0" id="SZr-dY-zHX"/>
+                                            <group alignment="left" layout="vertical" id="6ZI-nZ-rbO">
+                                                <items>
+                                                    <label width="1" height="21" alignment="left" verticalAlignment="center" text="Suit Name" numberOfLines="0" id="SZr-dY-zHX"/>
+                                                    <label width="1" alignment="left" verticalAlignment="bottom" text="Water Colourwoods" id="J1e-KQ-WFY">
+                                                        <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                                    </label>
+                                                </items>
+                                            </group>
                                         </items>
                                         <color key="backgroundColor" red="0.07269965277777779" green="0.07269965277777779" blue="0.07269965277777779" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
@@ -24,6 +31,7 @@
                                         </connections>
                                     </group>
                                     <connections>
+                                        <outlet property="invadingDistrict" destination="J1e-KQ-WFY" id="ox9-p3-Uol"/>
                                         <outlet property="suitIcon" destination="zXL-XZ-vqA" id="ktr-Cc-Haw"/>
                                         <outlet property="suitName" destination="SZr-dY-zHX" id="FQm-Np-Qxu"/>
                                     </connections>
@@ -49,6 +57,7 @@
                             <color key="color" red="0.11833175505050508" green="0.11833175505050508" blue="0.11833175505050508" alpha="1" colorSpace="calibratedRGB"/>
                         </separator>
                         <label width="1" alignment="center" verticalAlignment="center" text="District" textAlignment="center" numberOfLines="0" id="9w9-Ja-Jox"/>
+                        <label width="1" alignment="center" verticalAlignment="center" hidden="YES" text="Mega Invasion" textAlignment="center" id="vvb-DE-CDS"/>
                         <timer width="1" alignment="center" verticalAlignment="center" textAlignment="center" id="yo3-Gp-uoZ"/>
                         <label width="1" alignment="center" verticalAlignment="center" text="Defeat Rate" textAlignment="center" numberOfLines="0" id="Qif-ms-VMa"/>
                     </items>

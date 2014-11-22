@@ -10,6 +10,17 @@ import WatchKit
 import Foundation
 
 
+extension String {
+    
+    func contains(find: String) -> Bool{
+        if let temp = self.rangeOfString(find){
+            return true
+        }
+        
+        return false
+    }
+}
+
 class InterfaceController: WKInterfaceController {
 
     // IB Outlets
@@ -88,7 +99,7 @@ class InterfaceController: WKInterfaceController {
             let row = invasionTable.rowControllerAtIndex(index) as InvasionList
             
             // Grab our suit (or cog) name
-            var cog = invasion["cog"] as String!
+            var cog = invasion["cog"] as? String
             
             // Set the cog name to the row
             row.suitName.setText(cog)
@@ -99,18 +110,24 @@ class InterfaceController: WKInterfaceController {
             }
             
             // Lets do this in the background so we don't freeze the mainThread
-            let request: NSURLRequest = NSURLRequest(URL: NSURL(string: createFormattedImageAddress(cog))!)
-            NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue(), completionHandler: { (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
-                // Make sure we don't have an error
-                if error == nil {
-                    if let suitIcon = UIImage(data: data) {
-                        row.suitIcon.setImage(suitIcon)
+            if let address = createFormattedImageAddress(cog) {
+                let request: NSURLRequest = NSURLRequest(URL: NSURL(string: address)!)
+                NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue(), completionHandler: { (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
+                    // Make sure we don't have an error
+                    if error == nil {
+                        if let suitIcon = UIImage(data: data) {
+                            row.suitIcon.setImage(suitIcon)
+                        }
+                    } else {
+                        println("Error: \(error.localizedDescription)")
                     }
-                } else {
-                    println("Error: \(error.localizedDescription)")
-                }
-            })
+                })
+            }
+            
+            let district = invasion["district"] as? String
+            row.invadingDistrict.setText(district)
         }
+        
     }
     
     override func contextForSegueWithIdentifier(segueIdentifier: String, inTable table: WKInterfaceTable, rowIndex: Int) -> AnyObject? {
@@ -122,29 +139,41 @@ class InterfaceController: WKInterfaceController {
     
     // MARK: Helpers
     
-    func createFormattedImageAddress(cog: String) -> String {
-        // Create our lowercase string
-        var formattedCog = cog.lowercaseString
+    func createFormattedImageAddress(suit: String?) -> String? {
         
-        // Add any characters that might need to be stripped from a string
-        let charactersToStrip = ["-", " "]
-        
-        // Loop over everything and remove it
-        for character in charactersToStrip {
-            formattedCog = formattedCog.stringByReplacingOccurrencesOfString(character, withString: "_", options: nil, range: nil)
+        // Typecast to ensure safer code
+        if let cog = suit {
+            
+            // Create our lowercase string
+            var formattedCog = cog.lowercaseString
+            
+            // Add any characters that might need to be stripped from a string
+            let charactersToStrip = ["-", " "]
+            
+            // Loop over everything and remove it
+            for character in charactersToStrip {
+                formattedCog = formattedCog.stringByReplacingOccurrencesOfString(character, withString: "_", options: nil, range: nil)
+            }
+            
+            // URL encode it all
+            formattedCog = formattedCog.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!
+            
+            // This makes me cry right here...
+            formattedCog = formattedCog.stringByReplacingOccurrencesOfString("%03", withString: "", options: nil, range: nil)
+            
+            // Check and see if we are a skelecog
+            if formattedCog.contains("skelecog") {
+                formattedCog = "skelecog"
+            }
+            
+            // Put it all together
+            let address = "http://toonhq.org/static/2.03/img/cogs/\(formattedCog).png"
+            
+            // BOOM! Return the value!
+            return address
         }
         
-        // URL encode it all
-        formattedCog = formattedCog.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!
-        
-        // This makes me cry right here...
-        formattedCog = formattedCog.stringByReplacingOccurrencesOfString("%03", withString: "", options: nil, range: nil)
-        
-        // Put it all together
-        let address = "http://toonhq.org/static/2.03/img/cogs/\(formattedCog).png"
-        
-        // BOOM! Return the value!
-        return address
+        return nil
     }
 
 }
