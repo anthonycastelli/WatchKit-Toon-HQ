@@ -15,6 +15,7 @@ class InvasionDetails: WKInterfaceController {
     @IBOutlet weak var suitName: WKInterfaceLabel!
     @IBOutlet weak var shardName: WKInterfaceLabel!
     @IBOutlet weak var timeLeft: WKInterfaceTimer!
+    @IBOutlet weak var megaInvasion: WKInterfaceLabel!
     @IBOutlet weak var suitsPerMinute: WKInterfaceLabel!
     
     // We need this later
@@ -60,54 +61,74 @@ class InvasionDetails: WKInterfaceController {
         }
         
         // Set all our data
-        let request: NSURLRequest = NSURLRequest(URL: NSURL(string: createFormattedImageAddress(cog))!)
-        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue(), completionHandler: { (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
-            // Make sure we don't have an error
-            if error == nil {
-                if let suitIcon = UIImage(data: data) {
-                    self.suitIcon.setImage(suitIcon)
+        if let address = createFormattedImageAddress(cog) {
+            let request: NSURLRequest = NSURLRequest(URL: NSURL(string: address)!)
+            NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue(), completionHandler: { (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
+                // Make sure we don't have an error
+                if error == nil {
+                    if let suitIcon = UIImage(data: data) {
+                        self.suitIcon.setImage(suitIcon)
+                    }
+                } else {
+                    println("Error: \(error.localizedDescription)")
                 }
-            } else {
-                println("Error: \(error.localizedDescription)")
-            }
-        })
+            })
+        }
         
         suitName.setText(cog)
         shardName.setText(district)
         suitsPerMinute.setText(String(format: "Approx. %.f cog/min", round(defeatRate * 60)))
 
-        let time: Float = round(Float(totalAmount) * defeatRate - Float(defeated) * defeatRate)
-        println(time)
-        let date = NSDate(timeInterval: NSTimeInterval(time), sinceDate: NSDate())
-        timeLeft.setDate(date)
-        timeLeft.start()
+        // Check if we have a mega invasion
+        // It appears a million cogs is a mega invasion
+        if totalAmount >= 1000000 && defeated == 0 {
+            timeLeft.setHidden(true)
+            megaInvasion.setHidden(false)
+        } else {
+            let time: Float = round(Float(totalAmount) * defeatRate - Float(defeated) * defeatRate)
+            let date = NSDate(timeInterval: NSTimeInterval(time), sinceDate: NSDate())
+            timeLeft.setDate(date)
+            timeLeft.start()
+        }
     }
     
     // MARK: Helpers
     
-    func createFormattedImageAddress(cog: String) -> String {
-        // Create our lowercase string
-        var formattedCog = cog.lowercaseString
+    func createFormattedImageAddress(suit: String?) -> String? {
         
-        // Add any characters that might need to be stripped from a string
-        let charactersToStrip = ["-", " "]
-        
-        // Loop over everything and remove it
-        for character in charactersToStrip {
-            formattedCog = formattedCog.stringByReplacingOccurrencesOfString(character, withString: "_", options: nil, range: nil)
+        // Typecast to ensure safer code
+        if let cog = suit {
+            
+            // Create our lowercase string
+            var formattedCog = cog.lowercaseString
+            
+            // Add any characters that might need to be stripped from a string
+            let charactersToStrip = ["-", " "]
+            
+            // Loop over everything and remove it
+            for character in charactersToStrip {
+                formattedCog = formattedCog.stringByReplacingOccurrencesOfString(character, withString: "_", options: nil, range: nil)
+            }
+            
+            // URL encode it all
+            formattedCog = formattedCog.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!
+            
+            // This makes me cry right here...
+            formattedCog = formattedCog.stringByReplacingOccurrencesOfString("%03", withString: "", options: nil, range: nil)
+            
+            // Check and see if we are a skelecog
+            if formattedCog.contains("skelecog") {
+                formattedCog = "skelecog"
+            }
+            
+            // Put it all together
+            let address = "http://toonhq.org/static/2.03/img/cogs/\(formattedCog).png"
+            
+            // BOOM! Return the value!
+            return address
         }
         
-        // URL encode it all
-        formattedCog = formattedCog.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!
-        
-        // This makes me cry right here...
-        formattedCog = formattedCog.stringByReplacingOccurrencesOfString("%03", withString: "", options: nil, range: nil)
-        
-        // Put it all together
-        let address = "http://toonhq.org/static/2.03/img/cogs/\(formattedCog).png"
-        
-        // BOOM! Return the value!
-        return address
+        return nil
     }
     
 }

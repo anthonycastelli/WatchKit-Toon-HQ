@@ -62,6 +62,7 @@
                         <label width="1" alignment="center" verticalAlignment="center" text="Defeat Rate" textAlignment="center" numberOfLines="0" id="Qif-ms-VMa"/>
                     </items>
                     <connections>
+                        <outlet property="megaInvasion" destination="vvb-DE-CDS" id="L9f-6V-7Jy"/>
                         <outlet property="shardName" destination="9w9-Ja-Jox" id="nXP-10-VRP"/>
                         <outlet property="suitIcon" destination="Bz9-y2-O6e" id="CmQ-jI-p29"/>
                         <outlet property="suitName" destination="U4Y-bf-DwQ" id="a3E-RW-qFx"/>
